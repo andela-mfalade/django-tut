@@ -1,1 +1,13 @@
-<h1>Yeet!!!!</h1>
+<div style="text-align: center;margin: 0 auto; padding: 50px;">
+    <h1>Yeet!!!!</h1>
+
+    <br />
+
+    {% for post in posts %}
+        <div>
+            <p> Published: {{ post.published_date }} </p>
+            <h3><a href=""> {{ post.title }}</a></h3>
+            <p>{{ post.text | linebreaks }}</p>
+        </div>
+    {% endfor %}
+</div>
