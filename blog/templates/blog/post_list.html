@@ -1,13 +1,13 @@
-<div style="text-align: center;margin: 0 auto; padding: 50px;">
-    <h1>Yeet!!!!</h1>
+{% extends 'blog/base.html' %}
 
-    <br />
-
+<div class="container">
+    {% block content %}
     {% for post in posts %}
-        <div>
-            <p> Published: {{ post.published_date }} </p>
-            <h3><a href=""> {{ post.title }}</a></h3>
-            <p>{{ post.text | linebreaks }}</p>
-        </div>
+    <div class="post col-md-4">
+        <p> Published: {{ post.published_date }} </p>
+        <h3><a href="{% url 'post_detail' pk=post.pk %}"> {{ post.title }}</a></h3>
+        <p>{{ post.text | linebreaks }}</p>
+    </div>
     {% endfor %}
+    {% endblock %}
 </div>
